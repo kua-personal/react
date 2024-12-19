@@ -1,4 +1,4 @@
-import React, {useReducer, useRef} from 'react'
+import React, {useCallback, useReducer, useRef} from 'react'
 import './App.css'
 import List from "./components/List.jsx";
 import Editor from "./components/Editor.jsx";
@@ -41,7 +41,7 @@ function App() {
     const [todos, dispatch] = useReducer(reducer, mockData);
     const idRef = useRef(3)
 
-    const onCreate = (content) => {
+    const onCreate = useCallback((content) => {
         dispatch({
             type: "CREATE",
             data: {
@@ -51,21 +51,22 @@ function App() {
                 date: new Date().getTime()
             }
         })
-    }
+    }, [])
 
-    const onUpdate = (targetId) => {
+    const onUpdate = useCallback((targetId) => {
         dispatch({
             type: "UPDATE",
             targetId: targetId
         })
-    }
+    }, [])
 
-    const onDelete = (targetId) => {
+    const onDelete = useCallback((targetId) => {
         dispatch({
             type: "DELETE",
             targetId: targetId
         })
-    }
+    }, []);
+
 
     return (
         <div className="App">
