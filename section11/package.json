@@ -1,13 +1,13 @@
 {
-  "name": "section08",
+  "name": "section11",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "../section10/node_modules/.bin/vite",
-    "build": "../section10/node_modules/.bin/vite build",
-    "lint": "../section10/node_modules/.bin/eslint .",
-    "preview": "../section10/node_modules/.bin/vite preview"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
